@@ -3,10 +3,7 @@ layout: simple
 title: Scope, Goals and Open Questions
 ---
 
-<style type="text/css">
-          ul.keypoints:before {content: "Keypoints: "; margin-left: -2em;}
-          ul.keypoints {color: darkred; font-weight: bold;}
-</style>
+[See this page rendered](http://twitwi.github.io/lesson-manager/01-scope-and-goals.html)
 
 <ul class="keypoints">
     <li>this is an attempt at defining the project and motivating some choices</li>
@@ -24,11 +21,12 @@ In this document I detail some comments and additional reflections that I find i
 <ul class="keypoints">
     <li>being able to view the graph of "learning units" is important</li>
     <li><a href="http://www.metacademy.org/">metacademy</a> is amazing</li>
-    <li>metacademy is more a graph of concept (with attached lessons) but without versioning</li>
+    <li>metacademy is a graph of concept (with attached lessons) but without versioning</li>
 </ul>
 
 The original formulation of the project is to be able to choose and import lessons when preparing for a bootcamp.
 However, once we start describing lessons, much more can be done, such as:
+
 - giving an overview of the graph of lessons (when preparing, when you're a new instructor, …)
 - using the graph to make it possible for learners to know what they can do/explore after the bootcamp
 - using the graph to explicitly state the requirements (pre-conditions) to attend a bootcamp (e.g., installation can be pre-condition for novice bootcamp) (e.g., novice shell lesson may be a precondition for a not-totally-novice bootcamp)
@@ -63,12 +61,28 @@ We might consider also the things they don't want to include, for example if som
 ## What's in the graph
 
 <ul class="keypoints">
-    <li></li>
-    <li></li>
+    <li>we should first focus on plain dependencies, with fixed versions</li>
+    <li>we should consider "virtual packages" early</li>
 </ul>
 
 The most structuring questions are around what we put in the dependency graph.
-Obviously, there is the basic concept of dependency from a lesson to another.
+There are many concepts in existing package managers and most of them are actually meaningful for lessons:
+
+- A depends on X: the basic concept of dependency from a lesson A on X.
+  One open question is: what is the nature of X?
+- A provides X: we call X a virtual package.
+  The principle is that multiple lessons (A, B, ...) are different but provide the same skill/knowledge X.
+  This is a way of making "or" between lessons, for example, if "C depends on X", then anyone who followed A or B can follow C.
+  The concept of virtual package, or we could call it "skill/achievement/..." is quite important as the lessons are starting to get diversified.
+- A recommends X (or even, X recommends Y): to express things that are not required but interesting to have.
+  This is interesting but not a core functionality.
+
+It is probably simpler if each lesson has a unique name, if this name does not contain any white space, e.g. from Raniere, "shell-filedir".
+Maven uses an "artifact id" (the lesson name) and a "group id" (the organization name), [together they should be unique](http://maven.apache.org/pom.html#Maven_Coordinates).
+We could adopt the same strategy but it is probably not necessary at first (most lessons would be in the software-carpentry group anyways).
+
+All software and package dependency systems use version and each dependency is expressed using a name and a version (or version range).
+To avoid problems when we evolve lessons, I think we should include such information right away.
 
 
 ## Semantic versioning
@@ -91,12 +105,28 @@ Usually, people will upgrade their dependencies as such: "patch" are applied bli
 
 Semantic versioning (is very beneficial but) requires people to understand the meaning of the version numbers and we will have to document, explain and teach this.
 
+
 ## Distributed deployment
 
 <ul class="keypoints">
-    <li>we should use repositories (hosting package lists) as much as possible</li>
-    <li>we should allow direct references (e.g., to a git repo) for </li>
+    <li>we should avoid repeating github urls as much as possible</li>
+    <li>we should still allow direct references (e.g., to a git repo)</li>
+    <li>we should accept a repository containing multiple lessons</li>
 </ul>
+
+Most package system distinguishes name of the required package from where to find it.
+In dpkg (debian, ubuntu, ...) a package depend on another using a name and a version, and a configuration file tells where to find repositories with lists of packages.
+Maven (java, ...) has the same concept of repositories and a project depends only on libraries using their name and version (no precise location).
+I think we should adopt a similar solution, compared to the example proposed by Raniere.
+In the examples, there is a lot of repetitions of "http://github.com" and other urls (and also the "protocol") which mixes two concerns: what to import and from where to import it.
+We should however keep it possible to use easily new repositories if we want to mix and match things from the mainstream repositories and from a custom one.
+
+As implicitly proposed by Raniere, it might be tempting to cleanly split the existing repository such that we get one repository per lesson (this is what is usually done in package systems such as npm, etc).
+Even if I like this clean split, I expect such an architecture to be a huge obstacle for our instructors working on multiple lessons.
+It would also discourage instructors in doing proper fine-grained description of lessons, e.g.: “I don't want to create 3 repositories for the git lessons so I'll just say it's one big lesson”.
+Overall I think a lesson should be a folder in a repo (maybe defaulting to the root of the repo) such that it is easy to have multiple lessons in a single repository.
+A bonus is that we can start reusing existing repositories (software carpentry ones, tutorials for some projects, ...) without really requiring to first slice and dice these repository.
+A potential issue to work around is that we might need to clone the same repo many times (to get different subparts at different git revisions).
 
 
 ## Licenses and formats
@@ -105,6 +135,7 @@ I agree with going for only open licenses and formats.
 I still think we should remain somewhat flexible on the format.
 We should not forbid a video or an interactive Javascript applet just because it is not just an HTML page.
 It is clear that we should strongly encourage anything that can be written/converted into HTML to be.
+
 
 ## Implementation: what to reuse
 
@@ -115,7 +146,7 @@ It is clear that we should strongly encourage anything that can be written/conve
 
 I can think of multiple ways of implementing this.
 We could reuse some complete package manager like pip, 0install, apt, maven, …
-I think this would be to much of a constraint, especially if we want to reference existing material (e.g., on github) and not repackage everything.
+I think (but I'm far from sure) that this would be to much of a constraint, especially if we want to reference existing material (e.g., on github) and not repackage everything.
 We could also start from scratch, but handling dependencies etc can get complicated.
 The best would be to find a flexible library that helps in managing and resolving dependencies.
 I found a promising [project for dependency management](https://github.com/enthought/depsolver) and the author seems to be reactive.
@@ -138,4 +169,5 @@ I found a promising [project for dependency management](https://github.com/entho
   - https://github.com/metacademy/metacademy-content/wiki/Database-format
 - On some existing packaging systems
   - http://debian-handbook.info/browse/stable/sect.package-meta-information.html
+  - https://www.npmjs.org/
   - http://bower.io/docs/api/
