@@ -5,6 +5,10 @@
     {% if page.title %}
       <title>{{ page.title }}</title>
     {% endif %}
+      <style type="text/css">
+          ul.keypoints:before {content: "Keypoints: "; margin-left: -2em;}
+          ul.keypoints {color: darkred; font-weight: bold;}
+      </style>
   </head>
   <body>
     <div class="container">
