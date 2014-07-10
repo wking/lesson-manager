@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    {% if page.title %}
+      <title>{{ page.title }}</title>
+    {% endif %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span10 offset1">
+	  <!-- start content -->
+          {% if page.title %}
+          <h1>{{page.title}}</h1>
+          {% endif %}
+          {{content}}
+	  <!-- end content -->
+	</div>
+      </div>
+
+    </div>
+  </body>
+</html>
