@@ -3,10 +3,10 @@ layout: simple
 title: Scope, Goals and Open Questions
 ---
 
-      <style type="text/css">
+<style type="text/css">
           ul.keypoints:before {content: "Keypoints: "; margin-left: -2em;}
           ul.keypoints {color: darkred; font-weight: bold;}
-      </style>
+</style>
 
 <ul class="keypoints">
     <li>this is an attempt at defining the project and motivating some choices</li>
