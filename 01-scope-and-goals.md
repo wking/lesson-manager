@@ -133,7 +133,7 @@ A potential issue to work around is that we might need to clone the same repo ma
 
 I agree with going for only open licenses and formats.
 We should use HTML as suggested by Raniere, as it is widely readable.
-This can include videos or an interactive Javascript applets.
+This can include videos and interactive Javascript "applets".
 We should strongly encourage anything that can be written/converted into HTML to be.
 
 ## Implementation: what to reuse
