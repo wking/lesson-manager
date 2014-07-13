@@ -132,10 +132,9 @@ A potential issue to work around is that we might need to clone the same repo ma
 ## Licenses and formats
 
 I agree with going for only open licenses and formats.
-I still think we should remain somewhat flexible on the format.
-We should not forbid a video or an interactive Javascript applet just because it is not just an HTML page.
-It is clear that we should strongly encourage anything that can be written/converted into HTML to be.
-
+We should use HTML as suggested by Raniere, as it is widely readable.
+This can include videos or an interactive Javascript applets.
+We should strongly encourage anything that can be written/converted into HTML to be.
 
 ## Implementation: what to reuse
 
