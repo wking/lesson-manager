@@ -16,4 +16,6 @@ At this point in time, the repository is set up to centralize work around the sp
   - [a glossary](04-glossary.md)
 
 
-![](03-graph.svg?raw=true)
+<div>
+  <img src="03-graph.svg?raw=true" alt="rendered graph">
+</div>
