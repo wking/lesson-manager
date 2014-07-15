@@ -16,4 +16,4 @@ At this point in time, the repository is set up to centralize work around the sp
   - [a glossary](04-glossary.md)
 
 
-<img src="03-graph.svg?raw=true"/>
+[](03-graph.svg?raw=true)
