@@ -3,7 +3,9 @@ layout: simple
 title: Choices, Focus and Tasks for the Sprint
 ---
 
-NOTE: the tasks will first be handled in the etherpad to make interactions more fluid
+**NOTE**: the tasks will first be handled in the etherpad to make interactions more fluid
+
+**NOTE**: maybe, a very first version would be better of with using an existing package manager
 
 # Focus
 
