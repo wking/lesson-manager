@@ -3,11 +3,16 @@ layout: simple
 title: Choices, Focus and Tasks for the Sprint
 ---
 
+# Important preamble
+
 **NOTE**: the tasks will first be handled in the etherpad to make interactions more fluid
 
-**NOTE**: maybe, a very first version would be better of with using an existing package manager
+ **NOTE**: maybe, a very first version would be better of with using an existing package manager
 
-# Focus
+ - bower is very promising as it uses git directly, but it is very flat on dependency handling (no resolution of transitive dependencies), bower does not handle "virtual packages"
+ - most other package manager are either custom hosted (no direct git hosting) and/or handle only specific kind of packages (e.g., javascript modules)
+
+ # Focus
 
 A good target for the sprint is a complete system working with the main subpart of our lessons (shell, git, ...).
 We should rather target a complete system with only a few lessons, rather than a feature-rich system that is incomplete.
