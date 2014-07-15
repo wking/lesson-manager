@@ -3,6 +3,8 @@ layout: simple
 title: Choices, Focus and Tasks for the Sprint
 ---
 
+NOTE: the tasks will first be handled in the etherpad to make interactions more fluid
+
 # Focus
 
 A good target for the sprint is a complete system working with the main subpart of our lessons (shell, git, ...).
