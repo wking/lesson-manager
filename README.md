@@ -16,7 +16,4 @@ At this point in time, the repository is set up to centralize work around the sp
   - [a glossary](04-glossary.md)
 
 
-<object>
-  <param name="src" value="03-graph.svg" />
-  <param name="type" value="image/svg+xml" />
-</object>
+<img src="http://twitwi.github.io/lesson-manager/03-graph.svg" alt="rendered graph from gh-pages" />
