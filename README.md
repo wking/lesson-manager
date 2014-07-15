@@ -12,6 +12,8 @@ At this point in time, the repository is set up to centralize work around the sp
 - in this repository:
   - [some ideas and points of discussion](01-scope-and-goals.md), by Rémi Emonet
   - [discussions, choices and tasks list](02-sprint-choices-and-tasks.md) for a first version in the context of the sprint
-  - [describing the current lessons](03-split-lessons-with-dependencies.md) ( [latest rendered graph](03-graph.svg) )
+  - [describing the current lessons](03-split-lessons-with-dependencies.md) (see last rendered graph below)
   - [a glossary](04-glossary.md)
 
+
+<img src="03-graph.svg"/>
