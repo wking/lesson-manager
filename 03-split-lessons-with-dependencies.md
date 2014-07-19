@@ -66,3 +66,5 @@ DEPENDENCIES
     InstallingAnaconda27 -> InstalledPython27
 
 END
+
+<img src="http://twitwi.github.io/lesson-manager/03-graph.svg" alt="rendered graph from gh-pages" />
