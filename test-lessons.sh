@@ -1,7 +1,8 @@
 #!/bin/sh
 
-rm -rf shell git workshop &&
+rm -rf shell git workshop student-workshop &&
 
+# stock shell lesson
 mkdir shell &&
 (
 	cd shell &&
@@ -29,6 +30,7 @@ mkdir shell &&
 	git tag v0.2.0
 ) &&
 
+# stock Git lesson
 mkdir git &&
 (
 	cd git &&
@@ -53,17 +55,43 @@ mkdir git &&
 	git tag v0.1.0
 ) &&
 
+# stock workshop collection
+mkdir workshop &&
+(
+	cd workshop &&
+	git init &&
+	echo "Here's how you write software..." > README.md &&
+	git add README.md &&
+	cat <<-EOF > bower.json &&
+		{
+			"name": "swc-workshop",
+			"description": "One-day introduction to software development",
+			"license": "CC BY 3.0 Unported",
+			"homepage": "http://example.invalid/swc",
+			"main": "README.md",
+			"ignore": [],
+			"dependencies": {
+				"git-lesson": "git://localhost/git#^0.*"
+			}
+		}
+		EOF
+	git add bower.json &&
+	git commit -m "Bump to 0.1.0" &&
+	git tag v0.1.0
+) &&
+
 GIT_DAEMON_PID_FILE=$(mktemp git-daemon-pid.XXXXXX) &&
 git daemon --detach --pid-file="${GIT_DAEMON_PID_FILE}" \
 	--export-all --base-path=. &&
 sleep 1 &&
 GIT_DAEMON_PID=$(cat "${GIT_DAEMON_PID_FILE}")
 
-mkdir workshop &&
+# Student/instructor checkout for the workshop itself
+git clone git://localhost/workshop student-workshop &&
 (
-	cd workshop &&
+	cd student-workshop &&
 	bower cache clean &&
-	bower install git://localhost/git &&
+	bower install &&
 	tree &&
 	bower list
 ) &&
