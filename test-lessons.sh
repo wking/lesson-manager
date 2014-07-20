@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -rf shell git workshop student-workshop &&
+rm -rf shell my-shell git workshop my-workshop student-workshop &&
 
 # stock shell lesson
 mkdir shell &&
@@ -28,6 +28,15 @@ mkdir shell &&
 	echo 'Also talk about some POSIX utilities (cat, grep, ...).' >> README.md &&
 	git commit -am 'Introduce POSIX utilities (cat, grep, ...)' &&
 	git tag v0.2.0
+) &&
+
+# customized shell lesson
+git clone shell my-shell &&
+(
+	cd my-shell &&
+	echo 'Also talk about find' >> README.md &&
+	git commit -am 'Talk about find' &&
+	git tag v0.3.0
 ) &&
 
 # stock Git lesson
@@ -80,6 +89,15 @@ mkdir workshop &&
 	git tag v0.1.0
 ) &&
 
+# custom workshop collection, slotting in our custom shell lesson
+git clone workshop my-workshop &&
+(
+	cd my-workshop &&
+	sed -i 's|^\([[:space:]]*\)\(\"git-lesson".*\)|\1"shell-lesson": "git://localhost/my-shell",\n\1\2|' bower.json &&
+	git commit -am "Swap in my-shell for the shell lesson" &&
+	git tag v0.2.0
+) &&
+
 GIT_DAEMON_PID_FILE=$(mktemp git-daemon-pid.XXXXXX) &&
 git daemon --detach --pid-file="${GIT_DAEMON_PID_FILE}" \
 	--export-all --base-path=. &&
@@ -87,7 +105,7 @@ sleep 1 &&
 GIT_DAEMON_PID=$(cat "${GIT_DAEMON_PID_FILE}")
 
 # Student/instructor checkout for the workshop itself
-git clone git://localhost/workshop student-workshop &&
+git clone git://localhost/my-workshop student-workshop &&
 (
 	cd student-workshop &&
 	bower cache clean &&
