@@ -44,7 +44,7 @@ mkdir git &&
 			"main": "README.md",
 			"ignore": [],
 			"dependencies": {
-				"shell-lesson": "git://localhost/shell#^0.1"
+				"shell-lesson": "git://localhost/shell#0.*"
 			}
 		}
 		EOF
