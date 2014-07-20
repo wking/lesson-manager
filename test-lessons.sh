@@ -11,12 +11,12 @@ mkdir shell &&
 	git add README.md &&
 	cat <<-EOF > bower.json &&
 		{
-			"name": "shell-lesson",
-			"description": "Introduce folks to basic POSIX-shell usage",
-			"license": "CC BY 3.0 Unported",
-			"homepage": "http://example.invalid/shell",
-			"main": "README.md",
-			"ignore": []
+		  "name": "shell-lesson",
+		  "description": "Introduce folks to basic POSIX-shell usage",
+		  "license": "CC BY 3.0 Unported",
+		  "homepage": "http://example.invalid/shell",
+		  "main": "README.md",
+		  "ignore": []
 		}
 		EOF
 	git add bower.json &&
@@ -39,15 +39,15 @@ mkdir git &&
 	git add README.md &&
 	cat <<-EOF > bower.json &&
 		{
-			"name": "git-lesson",
-			"description": "Introduce folks to basic Git usage",
-			"license": "CC BY 3.0 Unported",
-			"homepage": "http://example.invalid/git",
-			"main": "README.md",
-			"ignore": [],
-			"dependencies": {
-				"shell-lesson": "git://localhost/shell#0.*"
-			}
+		  "name": "git-lesson",
+		  "description": "Introduce folks to basic Git usage",
+		  "license": "CC BY 3.0 Unported",
+		  "homepage": "http://example.invalid/git",
+		  "main": "README.md",
+		  "ignore": [],
+		  "dependencies": {
+		    "shell-lesson": "git://localhost/shell#0.*"
+		  }
 		}
 		EOF
 	git add bower.json &&
@@ -64,15 +64,15 @@ mkdir workshop &&
 	git add README.md &&
 	cat <<-EOF > bower.json &&
 		{
-			"name": "swc-workshop",
-			"description": "One-day introduction to software development",
-			"license": "CC BY 3.0 Unported",
-			"homepage": "http://example.invalid/swc",
-			"main": "README.md",
-			"ignore": [],
-			"dependencies": {
-				"git-lesson": "git://localhost/git#^0.*"
-			}
+		  "name": "swc-workshop",
+		  "description": "One-day introduction to software development",
+		  "license": "CC BY 3.0 Unported",
+		  "homepage": "http://example.invalid/swc",
+		  "main": "README.md",
+		  "ignore": [],
+		  "dependencies": {
+		    "git-lesson": "git://localhost/git#^0.*"
+		  }
 		}
 		EOF
 	git add bower.json &&
