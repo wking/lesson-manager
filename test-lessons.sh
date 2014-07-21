@@ -1,7 +1,8 @@
 #!/bin/sh
 
-rm -rf shell git workshop &&
+rm -rf shell my-shell git workshop my-workshop student-workshop &&
 
+# stock shell lesson
 mkdir shell &&
 (
 	cd shell &&
@@ -10,12 +11,12 @@ mkdir shell &&
 	git add README.md &&
 	cat <<-EOF > bower.json &&
 		{
-			"name": "shell-lesson",
-			"description": "Introduce folks to basic POSIX-shell usage",
-			"license": "CC BY 3.0 Unported",
-			"homepage": "http://example.invalid/shell",
-			"main": "README.md",
-			"ignore": []
+		  "name": "shell-lesson",
+		  "description": "Introduce folks to basic POSIX-shell usage",
+		  "license": "CC BY 3.0 Unported",
+		  "homepage": "http://example.invalid/shell",
+		  "main": "README.md",
+		  "ignore": []
 		}
 		EOF
 	git add bower.json &&
@@ -29,6 +30,16 @@ mkdir shell &&
 	git tag v0.2.0
 ) &&
 
+# customized shell lesson
+git clone shell my-shell &&
+(
+	cd my-shell &&
+	echo 'Also talk about find' >> README.md &&
+	git commit -am 'Talk about find' &&
+	git tag v0.3.0
+) &&
+
+# stock Git lesson
 mkdir git &&
 (
 	cd git &&
@@ -37,20 +48,54 @@ mkdir git &&
 	git add README.md &&
 	cat <<-EOF > bower.json &&
 		{
-			"name": "git-lesson",
-			"description": "Introduce folks to basic Git usage",
-			"license": "CC BY 3.0 Unported",
-			"homepage": "http://example.invalid/git",
-			"main": "README.md",
-			"ignore": [],
-			"dependencies": {
-				"shell-lesson": "git://localhost/shell#0.*"
-			}
+		  "name": "git-lesson",
+		  "description": "Introduce folks to basic Git usage",
+		  "license": "CC BY 3.0 Unported",
+		  "homepage": "http://example.invalid/git",
+		  "main": "README.md",
+		  "ignore": [],
+		  "dependencies": {
+		    "shell-lesson": "git://localhost/shell#0.*"
+		  }
 		}
 		EOF
 	git add bower.json &&
 	git commit -m "Bump to 0.1.0" &&
 	git tag v0.1.0
+) &&
+
+# stock workshop collection
+mkdir workshop &&
+(
+	cd workshop &&
+	git init &&
+	echo "Here's how you write software..." > README.md &&
+	git add README.md &&
+	cat <<-EOF > bower.json &&
+		{
+		  "name": "swc-workshop",
+		  "description": "One-day introduction to software development",
+		  "license": "CC BY 3.0 Unported",
+		  "homepage": "http://example.invalid/swc",
+		  "main": "README.md",
+		  "ignore": [],
+		  "dependencies": {
+		    "git-lesson": "git://localhost/git#^0.*"
+		  }
+		}
+		EOF
+	git add bower.json &&
+	git commit -m "Bump to 0.1.0" &&
+	git tag v0.1.0
+) &&
+
+# custom workshop collection, slotting in our custom shell lesson
+git clone workshop my-workshop &&
+(
+	cd my-workshop &&
+	sed -i 's|^\([[:space:]]*\)\(\"git-lesson".*\)|\1"shell-lesson": "git://localhost/my-shell",\n\1\2|' bower.json &&
+	git commit -am "Swap in my-shell for the shell lesson" &&
+	git tag v0.2.0
 ) &&
 
 GIT_DAEMON_PID_FILE=$(mktemp git-daemon-pid.XXXXXX) &&
@@ -59,11 +104,12 @@ git daemon --detach --pid-file="${GIT_DAEMON_PID_FILE}" \
 sleep 1 &&
 GIT_DAEMON_PID=$(cat "${GIT_DAEMON_PID_FILE}")
 
-mkdir workshop &&
+# Student/instructor checkout for the workshop itself
+git clone git://localhost/my-workshop student-workshop &&
 (
-	cd workshop &&
+	cd student-workshop &&
 	bower cache clean &&
-	bower install git://localhost/git &&
+	bower install &&
 	tree &&
 	bower list
 ) &&
