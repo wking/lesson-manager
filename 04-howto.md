@@ -261,7 +261,7 @@ $ cat bower.json
 ~~~
 
 After create your metadata file you *must* create a git repository for it and
-upload it some here.
+you *must* add the proper tag (e.g., v0.1.0) to it and upload it some here.
 
 ~~~
 $ ls
@@ -274,8 +274,9 @@ $ git commit -m 'Creating lesson that can be imported'
  2 files changed, 11 insertions(+)
  create mode 100644 bower.json
  create mode 100644 index.html
+$ git tag v0.1.0
 $ git remote add origin https://github.com/username/your-awesome-lesson
-$ git push origin master
+$ git push origin master --tags
 ~~~
 
 Congratulations. Someone can import your lesson following the steps at the
@@ -329,3 +330,6 @@ bower.json  index.html  novice-git-intro/
 Pretty easy. After you do that you probably want to change something at your
 `index.html`, add the dependencies to your `.gitignore`, save the changes and
 update your git remote repository.
+
+You might also want to do or reuse a lesson collection (like "shell-based-bc" above),
+but that's another story (an easy one, but for later).
