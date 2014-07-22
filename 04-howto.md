@@ -3,13 +3,13 @@ layout: simple
 title: How To
 ---
 
-We selected [Bower](http://bower.io/) because:
+We selected [Bower][] because:
 
-1. it store the metadata as JSON,
-2. the dependencies are Git repositories and
+1. it store the metadata as [JSON][],
+2. the dependencies are [Git][] repositories and
 3. it resolve the dependencies pretty well.
 
-Before install Bower you need to install Git and Node and after do it:
+Before install Bower you need to install Git and [Node][].  Then:
 
 ~~~
 # npm install -g bower
@@ -19,9 +19,8 @@ Before install Bower you need to install Git and Node and after do it:
 
 (see also "Getting and building lessons with the work-in-progress script")
 
-We have some examples [here](https://github.com/SoftwareCarpentryLessonManager)
-that you can use to test. For example, to download the lesson about open
-science:
+We have some examples [here][lesson-manager] that you can use to
+test. For example, to download the lesson about open science:
 
 ~~~
 $ bower --config.directory=. install https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git
@@ -333,3 +332,10 @@ update your git remote repository.
 You might also want to create or reuse a lesson collection (like
 `shell-based-bc` above), but that's another story (an easy one, but
 for later).
+
+
+[Bower]: http://bower.io/
+[JSON]: http://json.org/
+[Git]: http://git-scm.com/
+[Node]: http://nodejs.org/
+[lesson-manager]: https://github.com/SoftwareCarpentryLessonManager
