@@ -135,7 +135,7 @@ git clone git://localhost/my-workshop student-workshop &&
 	bower install &&
 	tree &&
 	bower list &&
-	info "We just created a repo 'student-workshop' as a clone of 'workshop', simulating the student behavior." "It is just a plain clone + some bower runs.:"
+	info "We just created a repo 'student-workshop' as a clone of 'workshop', simulating the student behavior." "It is just a plain clone + some bower runs."
 ) &&
 
 kill "${GIT_DAEMON_PID}"
