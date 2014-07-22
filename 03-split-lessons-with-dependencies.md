@@ -1,9 +1,11 @@
-
-
+--- 
+layout: simple
+title: Split Lessons with Dependencies
+---
 
 This file aims at documenting/proposing a split of the current lessons and expressing dependencies.
 
-# Describing dependencies
+## Describing dependencies
 
 Important: see also [the glossary](04-glossary.md).
 

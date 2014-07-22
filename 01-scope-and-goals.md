@@ -150,10 +150,6 @@ We could also start from scratch, but handling dependencies etc can get complica
 The best would be to find a flexible library that helps in managing and resolving dependencies.
 I found a promising [project for dependency management](https://github.com/enthought/depsolver) and the author seems to be reactive.
 
-
-
-
-
 ## More links
 
 - On depsolver
