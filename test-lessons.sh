@@ -11,7 +11,7 @@ info() {
 }
 
 if command -v tree ; then
-	echo Using tree
+	echo "Using native tree"
 else
 	tree() {
 		find -name .git -prune -or -true
