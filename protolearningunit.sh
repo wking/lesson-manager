@@ -15,10 +15,18 @@ EOF
         exit
     fi
 
-#    case "$1" in
-#    echo go
+    case "$1" in
+        build)
+            jekyll build --plugins template/_plugins --layouts template/_layouts --config template/_config.yml
+            ;;
+        *) # anything else with be skipped
+            return
+            ;;
+    esac
+    exit
 }
 
+# TODO, generate .gitignore file?
 
 
 # by default, delegating to bower
