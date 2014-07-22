@@ -3,7 +3,7 @@ layout: simple
 title: How To
 ---
 
-We selected using [Bower](http://bower.io/) because:
+We selected [Bower](http://bower.io/) because:
 
 1. it store the metadata as JSON,
 2. the dependencies are Git repositories and
@@ -15,9 +15,9 @@ Before install Bower you need to install Git and Node and after do it:
 # npm install -g bower
 ~~~
 
-## Getting a Lesson
+## Getting a lesson
 
-(see also "Getting a building lessons with the work-in-progress script")
+(see also "Getting and building lessons with the work-in-progress script")
 
 We have some examples [here](https://github.com/SoftwareCarpentryLessonManager)
 that you can use to test. For example, to download the lesson about open
@@ -42,8 +42,8 @@ $ ls novice-git-intro
 bower.json  index.md
 ~~~
 
-The example above don't have any dependence. Let test with one lesson that has
-dependencies:
+The example above don't have any dependencies. Let test with a lesson
+that has dependencies:
 
 ~~~
 $ bower --config.directory=. install https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git
@@ -117,10 +117,10 @@ novice-git-backup/  novice-git-open/      novice-shell-filedir/  shell-based-bc/
 novice-git-intro/   novice-shell-create/  novice-shell-intro/
 ~~~
 
-As you can see, it download the lesson and its dependencies **but** the lesson
-and its dependencies are siblings directories and the dependencies should be
-sons of the lesson. As one workaround you can first clone and then resolve the
-dependencies:
+As you can see, it downloaded the lesson and its dependencies **but**
+the lesson and its dependencies are siblings directories. We want the
+dependencies to be children of the lesson. As one workaround you can
+first clone and then resolve the dependencies:
 
 ~~~
 $ git clone https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git
@@ -193,28 +193,29 @@ bower.json   gloss.md  novice-git-backup/  novice-git-open/      novice-shell-fi
 contents.md  intro.md  novice-git-intro/   novice-shell-create/  novice-shell-intro/    template/
 ~~~
 
-## Building a Lesson
+## Building a lesson
 
 Still working on that.
 
-## Getting a building lessons with the work-in-progress script
+## Getting and building lessons with the work-in-progress script
 
-There is a script which is a thin layer on top of bower+jekyll and which aims at simplify our/your life.
-You can test it with
+There is a script which is a thin layer on top of Bower+Jekyll and
+which aims at simplify our/your life.  You can test it with
 
-    git clone git@github.com:SoftwareCarpentryLessonManager/lesson-manager.git
-    git clone git@github.com:SoftwareCarpentryLessonManager/shell-based-bc.git
-    cd shell-based-bc/
-    ../lesson-manager/protolearningunit.sh update
-    ../lesson-manager/protolearningunit.sh build
+~~~
+$ git clone git@github.com:SoftwareCarpentryLessonManager/lesson-manager.git
+$ git clone git@github.com:SoftwareCarpentryLessonManager/shell-based-bc.git
+$ cd shell-based-bc/
+$ ../lesson-manager/protolearningunit.sh update
+$ ../lesson-manager/protolearningunit.sh build
+$ firefox _site/
+~~~
 
-    firefox _site/
+## Create a new lesson
 
-## Create a New Lesson
-
-Let say that your have a HTML lesson named `index.html` and you want to make it
-easy available to others import it and reuse. Your first step is create a
-metadata file for your lesson.
+Let say that your have a HTML lesson named `index.html` and you want
+to make it easyily available to others import it and reuse. Your first
+step is create a metadata file for your lesson.
 
 ~~~
 $ ls
@@ -231,7 +232,7 @@ $ bower init
 [?] homepage: http://www.your-web-page.com
 [?] set currently installed components as dependencies? No
 [?] add commonly ignored files to ignore list? No
-[?] would you like to mark this package as private which prevents it from being accidentally published to the re[?] would you like to mark this package as private which prevents it from being accidentally published to the registry? No
+[?] would you like to mark this package as private which prevents it from being accidentally published to the registry? No
 
 {
   name: 'Your Awesome Lesson',
@@ -260,8 +261,8 @@ $ cat bower.json
 }
 ~~~
 
-After create your metadata file you *must* create a git repository for it and
-you *must* add the proper tag (e.g., v0.1.0) to it and upload it some here.
+After create your metadata file you *must* create a Git repository for it and
+you *must* add the proper tag (e.g., v0.1.0) to it and publish it somewhere.
 
 ~~~
 $ ls
@@ -276,16 +277,16 @@ $ git commit -m 'Creating lesson that can be imported'
  create mode 100644 index.html
 $ git tag v0.1.0
 $ git remote add origin https://github.com/username/your-awesome-lesson
-$ git push origin master --tags
+$ git push --tags origin master
 ~~~
 
 Congratulations. Someone can import your lesson following the steps at the
 first section of this page.
 
-## Adding Dependencies to Your Lesson
+## Adding dependencies to your lesson
 
-Supposing that you want to import someones lesson that is already available
-some where you just need to:
+If you want to import someone's lesson that is already published, you
+just need to:
 
 ~~~
 $ cat bower.json
@@ -323,13 +324,12 @@ $ cat bower.json
 }
 $ ls
 bower.json  index.html  novice-git-intro/
-[raniere@pupunha] /tmp/tmp.MxUuUzX5I8/your-awesome-lesson
-%
 ~~~
 
 Pretty easy. After you do that you probably want to change something at your
 `index.html`, add the dependencies to your `.gitignore`, save the changes and
 update your git remote repository.
 
-You might also want to do or reuse a lesson collection (like "shell-based-bc" above),
-but that's another story (an easy one, but for later).
+You might also want to create or reuse a lesson collection (like
+`shell-based-bc` above), but that's another story (an easy one, but
+for later).
