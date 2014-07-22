@@ -17,6 +17,8 @@ Before install Bower you need to install Git and Node and after do it:
 
 ## Getting a Lesson
 
+(see also "Getting a building lessons with the work-in-progress script")
+
 We have some examples [here](https://github.com/SoftwareCarpentryLessonManager)
 that you can use to test. For example, to download the lesson about open
 science:
@@ -194,6 +196,19 @@ contents.md  intro.md  novice-git-intro/   novice-shell-create/  novice-shell-in
 ## Building a Lesson
 
 Still working on that.
+
+## Getting a building lessons with the work-in-progress script
+
+There is a script which is a thin layer on top of bower+jekyll and which aims at simplify our/your life.
+You can test it with
+
+    git clone git@github.com:SoftwareCarpentryLessonManager/lesson-manager.git
+    git clone git@github.com:SoftwareCarpentryLessonManager/shell-based-bc.git
+    cd shell-based-bc/
+    ../lesson-manager/protolearningunit.sh update
+    ../lesson-manager/protolearningunit.sh build
+
+    firefox _site/
 
 ## Create a New Lesson
 
