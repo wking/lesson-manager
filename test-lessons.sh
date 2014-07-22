@@ -12,7 +12,7 @@ info() {
 	#printf '\e[0;m'
 }
 
-if which tree ; then
+if command -v tree ; then
 	echo Using tree
 else
 	tree() {
