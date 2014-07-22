@@ -17,3 +17,13 @@ At this point in time, the repository is set up to centralize work around the sp
 
 
 <img src="http://twitwi.github.io/lesson-manager/03-graph.svg" alt="rendered graph from gh-pages" />
+
+
+
+# Random stuff
+
+  @@forceTag() {
+    git  tag --force v0.1.0
+    git push --tags --force
+  }
+
