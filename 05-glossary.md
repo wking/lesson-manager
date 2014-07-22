@@ -1,5 +1,7 @@
-
-# Glossary
+--- 
+layout: simple
+title: Glossary
+---
 
 Learning Unit
 :  a simple lesson, for example the lesson currently taught in "novice/shell/01-filedir.md"
