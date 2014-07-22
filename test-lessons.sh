@@ -75,7 +75,7 @@ mkdir git &&
 		  "main": "README.md",
 		  "ignore": [],
 		  "dependencies": {
-		    "shell-lesson": "git://localhost/shell#0.*"
+		    "shell": "git://localhost/shell#0.*"
 		  }
 		}
 		EOF
@@ -108,7 +108,7 @@ mkdir workshop &&
 		  "main": "README.md",
 		  "ignore": [],
 		  "dependencies": {
-		    "git-lesson": "git://localhost/git#^0.*"
+		    "git": "git://localhost/git#^0.*"
 		  }
 		}
 		EOF
@@ -129,7 +129,7 @@ mkdir workshop &&
 git clone workshop my-workshop &&
 (
 	cd my-workshop &&
-	sed -i 's|^\([[:space:]]*\)\(\"git-lesson".*\)|\1"shell-lesson": "git://localhost/my-shell",\n\1\2|' bower.json &&
+	sed -i 's|^\([[:space:]]*\)\(\"git".*\)|\1"shell": "git://localhost/my-shell",\n\1\2|' bower.json &&
 	git commit -am "Swap in my-shell for the shell lesson" &&
 	git tag v0.2.0 &&
 	info "Made a 'my-workshop' repository with a fork/clone of 'workshop'" \
