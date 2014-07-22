@@ -4,11 +4,9 @@ rm -rf shell my-shell git workshop my-workshop student-workshop &&
 
 info() {
 	# printf '\e[3;32m TEST \e[0;m'
-	echo "#################### INFO ####################"
 	for i in "$@"; do
-		echo "#####   $i"
+		echo "## $i"
 	done
-	echo "####################"
 	#printf '\e[0;m'
 }
 
