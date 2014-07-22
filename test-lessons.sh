@@ -45,7 +45,7 @@ mkdir shell &&
 	git tag v0.1.1
 	echo 'Also talk about some POSIX utilities (cat, grep, ...).' >> README.md &&
 	git commit -am 'Introduce POSIX utilities (cat, grep, ...)' &&
-	git tag v0.2.0
+	git tag v0.2.0 &&
 	info "We just made a 'shell' repository that holds the shell lesson." "It has versions (tags):" "   $(git tag --list | tr '\n'  ' ')"
 ) &&
 
@@ -55,7 +55,7 @@ git clone shell my-shell &&
 	cd my-shell &&
 	echo 'Also talk about find' >> README.md &&
 	git commit -am 'Talk about find' &&
-	git tag v0.3.0
+	git tag v0.3.0 &&
 	info "We just made a 'my-shell' repository as a fork/clone of 'shell' that holds changes by someone else." "It has an added version:" "   $(git tag --list | tr '\n'  ' ')"
 ) &&
 
@@ -81,7 +81,7 @@ mkdir git &&
 		EOF
 	git add bower.json &&
 	git commit -m "Bump to 0.1.0" &&
-	git tag v0.1.0
+	git tag v0.1.0 &&
 	info "We just made a 'git' repository that holds the git lesson." "It has some version:" "   $(git tag --list | tr '\n'  ' ')"
 ) &&
 
@@ -107,7 +107,7 @@ mkdir workshop &&
 		EOF
 	git add bower.json &&
 	git commit -m "Bump to 0.1.0" &&
-	git tag v0.1.0
+	git tag v0.1.0 &&
 	info "We just made a 'workshop' repository that holds the typical bootcamp collection." "It has some version:" "   $(git tag --list | tr '\n'  ' ')"
 ) &&
 
@@ -117,7 +117,7 @@ git clone workshop my-workshop &&
 	cd my-workshop &&
 	sed -i 's|^\([[:space:]]*\)\(\"git-lesson".*\)|\1"shell-lesson": "git://localhost/my-shell",\n\1\2|' bower.json &&
 	git commit -am "Swap in my-shell for the shell lesson" &&
-	git tag v0.2.0
+	git tag v0.2.0 &&
 	info "We just made a 'my-workshop' repository that holds an evolution of the bootcamp collection." "It adds the custom 'my-shell' dependency." "It has some version:" "   $(git tag --list | tr '\n'  ' ')"
 ) &&
 
@@ -134,7 +134,7 @@ git clone git://localhost/my-workshop student-workshop &&
 	bower cache clean &&
 	bower install &&
 	tree &&
-	bower list
+	bower list &&
 	info "We just created a repo 'student-workshop' as a clone of 'workshop', simulating the student behavior." "It is just a plain clone + some bower runs.:"
 ) &&
 
