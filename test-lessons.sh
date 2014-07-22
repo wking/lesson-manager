@@ -11,6 +11,15 @@ info() {
     echo "####################"
     #printf '\e[0;m'
 }
+
+if which tree ; then
+    echo Using tree
+else
+    tree() {
+        find -name .git -prune -or -true
+    }
+fi
+
 # stock shell lesson
 mkdir shell &&
 (
