@@ -80,6 +80,12 @@ mkdir git &&
 		}
 		EOF
 	git add bower.json &&
+	cat <<-EOF > .bowerrc &&
+		{
+		  "directory": "."
+		}
+		EOF
+	git add .bowerrc &&
 	git commit -m "Bump to 0.1.0" &&
 	git tag v0.1.0 &&
 	info "Made a 'git' repository with the Git lesson." \
@@ -107,6 +113,12 @@ mkdir workshop &&
 		}
 		EOF
 	git add bower.json &&
+	cat <<-EOF > .bowerrc &&
+		{
+		  "directory": "."
+		}
+		EOF
+	git add .bowerrc &&
 	git commit -m "Bump to 0.1.0" &&
 	git tag v0.1.0 &&
 	info "Made a 'workshop' repository with a lesson collection." \
