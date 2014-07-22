@@ -46,7 +46,8 @@ mkdir shell &&
 	echo 'Also talk about some POSIX utilities (cat, grep, ...).' >> README.md &&
 	git commit -am 'Introduce POSIX utilities (cat, grep, ...)' &&
 	git tag v0.2.0 &&
-	info "We just made a 'shell' repository that holds the shell lesson." "It has versions (tags):" "   $(git tag --list | tr '\n'  ' ')"
+	info "Made a 'shell' repository with the shell lesson." \
+		"Versions (tags): $(git tag --list | tr '\n' ' ')"
 ) &&
 
 # customized shell lesson
@@ -56,7 +57,8 @@ git clone shell my-shell &&
 	echo 'Also talk about find' >> README.md &&
 	git commit -am 'Talk about find' &&
 	git tag v0.3.0 &&
-	info "We just made a 'my-shell' repository as a fork/clone of 'shell' that holds changes by someone else." "It has an added version:" "   $(git tag --list | tr '\n'  ' ')"
+	info "Made a 'my-shell' repository with a fork/clone of 'shell'." \
+		"Versions: $(git tag --list | tr '\n' ' ')"
 ) &&
 
 # stock Git lesson
@@ -82,7 +84,8 @@ mkdir git &&
 	git add bower.json &&
 	git commit -m "Bump to 0.1.0" &&
 	git tag v0.1.0 &&
-	info "We just made a 'git' repository that holds the git lesson." "It has some version:" "   $(git tag --list | tr '\n'  ' ')"
+	info "Made a 'git' repository with the Git lesson." \
+		"Versions: $(git tag --list | tr '\n' ' ')"
 ) &&
 
 # stock workshop collection
@@ -108,7 +111,8 @@ mkdir workshop &&
 	git add bower.json &&
 	git commit -m "Bump to 0.1.0" &&
 	git tag v0.1.0 &&
-	info "We just made a 'workshop' repository that holds the typical bootcamp collection." "It has some version:" "   $(git tag --list | tr '\n'  ' ')"
+	info "Made a 'workshop' repository with a lesson collection." \
+		"Versions: $(git tag --list | tr '\n' ' ')"
 ) &&
 
 # custom workshop collection, slotting in our custom shell lesson
@@ -118,7 +122,8 @@ git clone workshop my-workshop &&
 	sed -i 's|^\([[:space:]]*\)\(\"git-lesson".*\)|\1"shell-lesson": "git://localhost/my-shell",\n\1\2|' bower.json &&
 	git commit -am "Swap in my-shell for the shell lesson" &&
 	git tag v0.2.0 &&
-	info "We just made a 'my-workshop' repository that holds an evolution of the bootcamp collection." "It adds the custom 'my-shell' dependency." "It has some version:" "   $(git tag --list | tr '\n'  ' ')"
+	info "Made a 'my-workshop' repository with a fork/clone of 'workshop'" \
+		"Versions: $(git tag --list | tr '\n' ' ')"
 ) &&
 
 GIT_DAEMON_PID_FILE=$(mktemp git-daemon-pid.XXXXXX) &&
@@ -135,7 +140,8 @@ git clone git://localhost/my-workshop student-workshop &&
 	bower install &&
 	tree &&
 	bower list &&
-	info "We just created a repo 'student-workshop' as a clone of 'workshop', simulating the student behavior." "It is just a plain clone + some bower runs."
+	info "Made a 'student-workshop' repository, simulating student behavior." \
+		"It is just a plain clone + some Bower runs."
 ) &&
 
 kill "${GIT_DAEMON_PID}"
