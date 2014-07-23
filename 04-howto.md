@@ -34,7 +34,7 @@ remote: Total 76 (delta 13), reused 74 (delta 12)
 Unpacking objects: 100% (76/76), done.
 Checking connectivity... done.
 $ cd shell-based-bc
-$ bower --config.directory=. update
+$ bower update
 bower not-cached    git://github.com/SoftwareCarpentryLessonManager/software-carpentry-template.git#*
 bower resolve       git://github.com/SoftwareCarpentryLessonManager/software-carpentry-template.git#*
 bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#0.1.0
