@@ -15,111 +15,11 @@ Before install Bower you need to install Git and [Node][].  Then:
 # npm install -g bower
 ~~~
 
-## Getting a lesson
-
+## Getting and building a lesson collection (the manual way)
 (see also "Getting and building lessons with the work-in-progress script")
 
-We have some examples [here][lesson-manager] that you can use to
-test. For example, to download the lesson about open science:
 
-~~~
-$ bower --config.directory=. install https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git
-bower not-cached
-https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower resolve
-https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower checkout      novice-git-intro#v0.1.0
-bower invalid-meta  novice-git-intro is missing "ignore" entry in bower.json
-bower resolved
-https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
-bower install       novice-git-intro#0.1.0
-
-novice-git-intro#0.1.0 novice-git-intro
-$ ls
-novice-git-intro/
-$ ls novice-git-intro
-bower.json  index.md
-~~~
-
-The example above don't have any dependencies. Let test with a lesson
-that has dependencies:
-
-~~~
-$ bower --config.directory=. install https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git
-bower not-cached    https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git#*
-bower resolve       https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git#*
-bower checkout      shell-based-bc#master
-bower invalid-meta  shell-based-bc is missing "main" entry in bower.json
-bower invalid-meta  shell-based-bc is missing "ignore" entry in bower.json
-bower resolved      https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git#d5df2ea55d
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-create.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-create.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-backup.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-backup.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.*
-bower new           version for git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower resolve       git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower download      https://github.com/SoftwareCarpentryLessonManager/novice-git-intro/archive/v0.1.0.tar.gz
-bower new           version for git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
-bower resolve       git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
-bower download      https://github.com/SoftwareCarpentryLessonManager/novice-git-open/archive/v0.1.0.tar.gz
-bower extract       novice-git-intro#* archive.tar.gz
-bower invalid-meta  novice-git-intro is missing "ignore" entry in bower.json
-bower resolved      git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
-bower extract       novice-git-open#* archive.tar.gz
-bower invalid-meta  novice-git-open is missing "ignore" entry in bower.json
-bower resolved      git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#0.1.0
-bower install       shell-based-bc#d5df2ea55d
-bower install       novice-shell-intro#0.1.0
-bower install       novice-shell-create#0.1.0
-bower install       novice-shell-filedir#0.1.0
-bower install       novice-git-backup#0.1.0
-bower install       novice-git-intro#0.1.0
-bower install       novice-git-open#0.1.0
-
-shell-based-bc#d5df2ea55d shell-based-bc
-├── novice-git-backup#0.1.0
-├── novice-git-intro#0.1.0
-├── novice-git-open#0.1.0
-├── novice-shell-create#0.1.0
-├── novice-shell-filedir#0.1.0
-└── novice-shell-intro#0.1.0
-
-novice-shell-intro#0.1.0 novice-shell-intro
-
-novice-shell-create#0.1.0 novice-shell-create
-├── novice-shell-filedir#0.1.0
-└── novice-shell-intro#0.1.0
-
-novice-shell-filedir#0.1.0 novice-shell-filedir
-└── novice-shell-intro#0.1.0
-
-novice-git-backup#0.1.0 novice-git-backup
-├── novice-git-intro#0.1.0
-└── novice-shell-filedir#0.1.0
-
-novice-git-intro#0.1.0 novice-git-intro
-
-novice-git-open#0.1.0 novice-git-open
-[raniere@pupunha] /tmp/tmp.YyeSzAnfiZ
-% ls
-novice-git-backup/  novice-git-open/      novice-shell-filedir/  shell-based-bc/
-novice-git-intro/   novice-shell-create/  novice-shell-intro/
-~~~
-
-As you can see, it downloaded the lesson and its dependencies **but**
-the lesson and its dependencies are siblings directories. We want the
-dependencies to be children of the lesson. As one workaround you can
-first clone and then resolve the dependencies:
+### Cloning the lesson collection
 
 ~~~
 $ git clone https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git
@@ -192,9 +92,13 @@ bower.json   gloss.md  novice-git-backup/  novice-git-open/      novice-shell-fi
 contents.md  intro.md  novice-git-intro/   novice-shell-create/  novice-shell-intro/    template/
 ~~~
 
-## Building a lesson
+### Building a lesson
 
-Still working on that.
+Now we need to run jekyll with some parameters:
+
+    jekyll build --plugins template/_plugins --layouts template/_layouts --config template/_config.yml
+    firefox _site/
+
 
 ## Getting and building lessons with the work-in-progress script
 
@@ -332,6 +236,115 @@ update your git remote repository.
 You might also want to create or reuse a lesson collection (like
 `shell-based-bc` above), but that's another story (an easy one, but
 for later).
+
+
+
+
+## Getting an individual lesson (not really polished)
+
+
+We have some examples [here][lesson-manager] that you can use to
+test. For example, to download the lesson about open science:
+
+~~~
+$ bower --config.directory=. install https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git
+bower not-cached
+https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
+bower resolve
+https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
+bower checkout      novice-git-intro#v0.1.0
+bower invalid-meta  novice-git-intro is missing "ignore" entry in bower.json
+bower resolved
+https://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
+bower install       novice-git-intro#0.1.0
+
+novice-git-intro#0.1.0 novice-git-intro
+$ ls
+novice-git-intro/
+$ ls novice-git-intro
+bower.json  index.md
+~~~
+
+The example above don't have any dependencies. Let test with a lesson
+that has dependencies:
+
+~~~
+$ bower --config.directory=. install https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git
+bower not-cached    https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git#*
+bower resolve       https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git#*
+bower checkout      shell-based-bc#master
+bower invalid-meta  shell-based-bc is missing "main" entry in bower.json
+bower invalid-meta  shell-based-bc is missing "ignore" entry in bower.json
+bower resolved      https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git#d5df2ea55d
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#*
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-create.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-create.git#*
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#*
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-backup.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-backup.git#*
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
+bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.0
+bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.*
+bower new           version for git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
+bower resolve       git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
+bower download      https://github.com/SoftwareCarpentryLessonManager/novice-git-intro/archive/v0.1.0.tar.gz
+bower new           version for git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
+bower resolve       git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
+bower download      https://github.com/SoftwareCarpentryLessonManager/novice-git-open/archive/v0.1.0.tar.gz
+bower extract       novice-git-intro#* archive.tar.gz
+bower invalid-meta  novice-git-intro is missing "ignore" entry in bower.json
+bower resolved      git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
+bower extract       novice-git-open#* archive.tar.gz
+bower invalid-meta  novice-git-open is missing "ignore" entry in bower.json
+bower resolved      git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#0.1.0
+bower install       shell-based-bc#d5df2ea55d
+bower install       novice-shell-intro#0.1.0
+bower install       novice-shell-create#0.1.0
+bower install       novice-shell-filedir#0.1.0
+bower install       novice-git-backup#0.1.0
+bower install       novice-git-intro#0.1.0
+bower install       novice-git-open#0.1.0
+
+shell-based-bc#d5df2ea55d shell-based-bc
+├── novice-git-backup#0.1.0
+├── novice-git-intro#0.1.0
+├── novice-git-open#0.1.0
+├── novice-shell-create#0.1.0
+├── novice-shell-filedir#0.1.0
+└── novice-shell-intro#0.1.0
+
+novice-shell-intro#0.1.0 novice-shell-intro
+
+novice-shell-create#0.1.0 novice-shell-create
+├── novice-shell-filedir#0.1.0
+└── novice-shell-intro#0.1.0
+
+novice-shell-filedir#0.1.0 novice-shell-filedir
+└── novice-shell-intro#0.1.0
+
+novice-git-backup#0.1.0 novice-git-backup
+├── novice-git-intro#0.1.0
+└── novice-shell-filedir#0.1.0
+
+novice-git-intro#0.1.0 novice-git-intro
+
+novice-git-open#0.1.0 novice-git-open
+[raniere@pupunha] /tmp/tmp.YyeSzAnfiZ
+% ls
+novice-git-backup/  novice-git-open/      novice-shell-filedir/  shell-based-bc/
+novice-git-intro/   novice-shell-create/  novice-shell-intro/
+~~~
+
+As you can see, it downloaded the lesson and its dependencies **but**
+the lesson and its dependencies are siblings directories. We want the
+dependencies to be children of the lesson. As one workaround you can
+first clone and then resolve the dependencies:
+
 
 
 [Bower]: http://bower.io/
