@@ -20,10 +20,3 @@ At this point in time, the repository is set up to centralize work around the sp
 
 
 
-# Random stuff
-
-  @@forceTag() {
-    git  tag --force v0.1.0
-    git push --tags --force
-  }
-
