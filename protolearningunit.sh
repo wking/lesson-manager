@@ -31,4 +31,4 @@ EOF
 
 # by default, delegating to bower
 interceptor "$@"
-bower "$@"
+bower --config.directory=. "$@"
