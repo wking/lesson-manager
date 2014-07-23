@@ -26,7 +26,7 @@ High level choices:
 
 - We'll use python as most of us know it.
 - We'll use a library to help with dependency management: https://github.com/enthought/depsolver .
-- We'll share the code, test, "collection" metadata, … in the current repo: https://github.com/twitwi/lesson-manager .
+- We'll share the code, test, "collection" metadata, … in the current repo: https://github.com/softwarecarpentrylessonmanager/lesson-manager . 
 - We'll fork the main https://github.com/swcarpentry/bc if it needs to be reworked (add metadata, move thing around, ...)
 - but it seems likely that we will start with a 1 lesson per repository as it is easier… so we might end up doing a lot of small repos
 - We'll handle only git as a versioning backend (we won't allow mercurial hosted lessons for now).

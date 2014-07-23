@@ -16,7 +16,5 @@ At this point in time, the repository is set up to centralize work around the sp
   - [a glossary](04-glossary.md)
 
 
-<img src="http://twitwi.github.io/lesson-manager/03-graph.svg" alt="rendered graph from gh-pages" />
-
-
+<img src=http://softwarecarpentrylessonmanager.github.io/lesson-manager/03-graph.svg" alt="rendered graph from gh-pages" />
 
