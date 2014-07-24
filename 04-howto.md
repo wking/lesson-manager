@@ -27,70 +27,8 @@ Before install Bower you need to install Git and [Node][].  Then:
 
 ~~~
 $ git clone https://github.com/SoftwareCarpentryLessonManager/shell-based-bc.git
-Cloning into 'shell-based-bc'...
-remote: Counting objects: 76, done.
-remote: Compressing objects: 100% (61/61), done.
-remote: Total 76 (delta 13), reused 74 (delta 12)
-Unpacking objects: 100% (76/76), done.
-Checking connectivity... done.
 $ cd shell-based-bc
 $ bower update
-bower not-cached    git://github.com/SoftwareCarpentryLessonManager/software-carpentry-template.git#*
-bower resolve       git://github.com/SoftwareCarpentryLessonManager/software-carpentry-template.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-intro.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-filedir.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-shell-create.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-shell-create.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-backup.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-backup.git#*
-bower cached        git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#0.1.0
-bower validate      0.1.0 against git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
-bower download      https://github.com/SoftwareCarpentryLessonManager/software-carpentry-template/archive/v0.1.0.tar.gz
-bower new           version for git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower resolve       git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#*
-bower new           version for git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
-bower resolve       git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#*
-bower download      https://github.com/SoftwareCarpentryLessonManager/novice-git-intro/archive/v0.1.0.tar.gz
-bower download      https://github.com/SoftwareCarpentryLessonManager/novice-git-open/archive/v0.1.0.tar.gz
-bower extract       novice-git-intro#* archive.tar.gz
-bower invalid-meta  novice-git-intro is missing "ignore" entry in bower.json
-bower resolved      git://github.com/SoftwareCarpentryLessonManager/novice-git-intro.git#0.1.0
-bower extract       novice-git-open#* archive.tar.gz
-bower invalid-meta  novice-git-open is missing "ignore" entry in bower.json
-bower resolved      git://github.com/SoftwareCarpentryLessonManager/novice-git-open.git#0.1.0
-bower extract       template#* archive.tar.gz
-bower invalid-meta  software-carpentry-template is missing "ignore" entry in bower.json
-bower resolved      git://github.com/SoftwareCarpentryLessonManager/software-carpentry-template.git#0.1.0
-bower install       novice-shell-intro#0.1.0
-bower install       novice-shell-filedir#0.1.0
-bower install       novice-shell-create#0.1.0
-bower install       novice-git-backup#0.1.0
-bower install       novice-git-intro#0.1.0
-bower install       novice-git-open#0.1.0
-bower install       template#0.1.0
-
-novice-shell-intro#0.1.0 novice-shell-intro
-
-novice-shell-filedir#0.1.0 novice-shell-filedir
-└── novice-shell-intro#0.1.0
-
-novice-shell-create#0.1.0 novice-shell-create
-├── novice-shell-filedir#0.1.0
-└── novice-shell-intro#0.1.0
-
-novice-git-backup#0.1.0 novice-git-backup
-├── novice-git-intro#0.1.0
-└── novice-shell-filedir#0.1.0
-
-novice-git-intro#0.1.0 novice-git-intro
-
-novice-git-open#0.1.0 novice-git-open
-
-template#0.1.0 template
 $ ls
 bower.json   gloss.md  novice-git-backup/  novice-git-open/      novice-shell-filedir/  README.md
 contents.md  intro.md  novice-git-intro/   novice-shell-create/  novice-shell-intro/    template/
